@@ -737,7 +737,8 @@
                     >Diqqat! Joylar chegaralangan!</b
                     >
                 </div>
-                <form class="apply-section-form">
+                <form method="post" class="apply-section-form" enctype="multipart/form-data">
+                    {% csrf_token %}
                     <input type="text" name="firstname" placeholder="Ism Familiyangiz" required/>
                     <input type="text" name="lastname" placeholder="Telefon raqamingiz" required/>
                     <input type="text" name="username" placeholder="Telegram username" required/>
@@ -779,25 +780,11 @@
                         <span class="green">SUN'IY INTELLEKT KURSIGA</span> YOZILISH
                     </h1>
 
-                    <form class="apply-section-form-modal">
-                        <input
-                                type="text"
-                                name="firstname"
-                                placeholder="Ism familiyangiz"
-                                required
-                        />
-                        <input
-                                type="text"
-                                name="lastname"
-                                placeholder="Telefon raqamingiz"
-                                required
-                        />
-                        <input
-                                type="text"
-                                name="lastname"
-                                placeholder="Telegram username"
-                                required
-                        />
+                    <form method="post" class="apply-section-form-modal" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <input type="text" name="firstname" placeholder="Ism familiyangiz" required/>
+                        <input type="text" name="lastname" placeholder="Telefon raqamingiz" required/>
+                        <input type="text" name="lastname" placeholder="Telegram username" required/>
                         <button class="btn" id="confirm">Kursga yozilish</button>
                     </form>
                 </div>
@@ -826,10 +813,7 @@
 
 <div id="up_btn">
     <a href="#">
-        <img
-                class="down-arrow"
-                src="{% static 'assets/images/down-arrow.pn' %}g"
-                alt="UP button"/>
+        <img class="down-arrow" src="{% static 'assets/images/down-arrow.pn' %}g" alt="UP button"/>
     </a>
 </div>
 
