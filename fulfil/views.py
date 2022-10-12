@@ -10,11 +10,15 @@ def home(request):
     text_split = main.course_body.split("?")
     teacher_about = main.teacher_about.split(".")
     why_projects = main.course_project_content.split(".")
+
+    # Nega sun'iy intellektni o'rganishim kerak?
+    why_profession_courses = WhyShouldStudyProfession.objects.all()[:2]
+    why_profession_courses1 = WhyShouldStudyProfession.objects.all()[2:]
+
     # print(teacher_about)
     # print(text_split)
-    print(why_projects)
+    # print(why_projects)
 
-    form = EnrollCourseForm()
     if request.method == 'POST':
         model = EnrollCourse()
         model.full_name = request.POST.get('firstname', '')
@@ -31,6 +35,8 @@ def home(request):
         'who_for_courses': who_for_courses,
         'why_projects': why_projects,
         'why_should_study_courses': why_should_study_courses,
+        'why_profession_courses': why_profession_courses,
+        'why_profession_courses1': why_profession_courses1,
     }
 
     return render(request, 'index.html', context)
