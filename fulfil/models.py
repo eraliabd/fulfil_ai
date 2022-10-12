@@ -46,7 +46,6 @@ class Main(models.Model):
     why_should_study_profession_title = models.CharField(max_length=255, null=True)
 
 
-
 # KURS KIMLAR UCHUN? Model
 class WhoForCourse(models.Model):
     image = models.ImageField(upload_to='who_for_course/')
@@ -75,3 +74,14 @@ class WhyShouldStudyCourse(models.Model):
 
     def __str__(self):
         return self.title
+
+
+# Kursimiz haqida izohlar
+class CommentAboutCourse(models.Model):
+    image = models.ImageField(upload_to='comment_image/')
+    definition = models.CharField(max_length=255)
+    full_name = models.CharField(max_length=255)
+    description = models.TextField()
+
+    def __str__(self):
+        return self.full_name
