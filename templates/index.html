@@ -741,20 +741,17 @@
                     <span class="green">IMKONIYAT</span>
                 </h2>
                 <p class="extra_chance_right_text">
-                    Kurs 10 oy davomida haftada <b>3 marta 2 soatlik</b> video darslar
-                    va qat’iy vazifalar orqali bo’lib o’tadi, siz <b>10 oyda</b> Python,
-                    Sun’iy intellekt dasturchi bo’lib yetishib chiqasiz. Kurs narxi
-                    <b>chegirma asosida 240.000 so’m/oyiga</b> Agar kursni tezroq va
-                    <b>o’zingizga moslab</b> o’rganishni xohlasangiz kursni butunligicha
-                    olishingiz mumkin bunda ham sizni o’ylagan xolda chegirma qilib
-                    berishga qaror qildik.
+                    {{ main.course_chance_content }}
                 </p>
+{#                <p class="extra_chance_right_text2">#}
+{#                    Butun kurs uchun umumiy#}
+{#                    <span class="extra_chance_right_text21"#}
+{#                    >2.000.000 so'm to'lang</span#}
+{#                    >#}
+{#                    va barchasiga ega bo'ling!#}
+{#                </p>#}
                 <p class="extra_chance_right_text2">
-                    Butun kurs uchun umumiy
-                    <span class="extra_chance_right_text21"
-                    >2.000.000 so'm to'lang</span
-                    >
-                    va barchasiga ega bo'ling!
+                    {{ main.course_chance_small_content }}
                 </p>
                 <button class="btn" onclick="modalOpen(event)">Kursga yozilish</button>
             </div>
@@ -792,7 +789,7 @@
             </div>
             <div class="apply-section-right">
                 <img
-                        src="{% static 'assets/images/hand.png' %}"
+                        src="media/{{ main.course_teacher_about_image }}"
                         alt="img"/>
             </div>
         </div>

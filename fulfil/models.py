@@ -32,6 +32,7 @@ class Main(models.Model):
     # YANA BIR IMKONIYAT
     course_chance_image = models.ImageField(upload_to='course_chance/', null=True)
     course_chance_content = models.TextField(null=True)
+    course_chance_small_content = models.TextField(null=True)
     # KURS VA USTOZ HAQIDA XULOSA CHIQARMOQCHIMISIZ?
     course_teacher_about_image = models.ImageField(upload_to='course_teacher_about/', null=True)
 
