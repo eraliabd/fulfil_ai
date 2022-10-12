@@ -6,6 +6,7 @@ from .forms import EnrollCourseForm
 def home(request):
     main = Main.objects.get()
     who_for_courses = WhoForCourse.objects.all()
+    why_should_study_courses = WhyShouldStudyCourse.objects.all()
     text_split = main.course_body.split("?")
     teacher_about = main.teacher_about.split(".")
     why_projects = main.course_project_content.split(".")
@@ -29,6 +30,7 @@ def home(request):
         'teacher_about': teacher_about,
         'who_for_courses': who_for_courses,
         'why_projects': why_projects,
+        'why_should_study_courses': why_should_study_courses,
     }
 
     return render(request, 'index.html', context)
