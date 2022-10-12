@@ -5,3 +5,6 @@ Fulfil Education o'quv markazida tahsil olgan talabalar tomonidan real loyihalar
 
 
 ![image](https://user-images.githubusercontent.com/91982815/195416211-4e9568cf-ece5-4262-8398-0e76ae67f329.png)
+
+
+![image](https://user-images.githubusercontent.com/91982815/195416402-bb5d3690-25dd-49dc-8f1b-10657de9b259.png)
