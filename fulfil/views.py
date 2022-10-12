@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import EnrollCourse, Main, WhoForCourse, WhyShouldStudyCourse, WhyShouldStudyProfession
+from .models import EnrollCourse, Main, WhoForCourse, WhyShouldStudyCourse, WhyShouldStudyProfession, CommentAboutCourse
 from .forms import EnrollCourseForm
 
 
@@ -7,6 +7,7 @@ def home(request):
     main = Main.objects.get()
     who_for_courses = WhoForCourse.objects.all()
     why_should_study_courses = WhyShouldStudyCourse.objects.all()
+
     text_split = main.course_body.split("?")
     teacher_about = main.teacher_about.split(".")
     why_projects = main.course_project_content.split(".")
@@ -14,6 +15,10 @@ def home(request):
     # Nega sun'iy intellektni o'rganishim kerak?
     why_profession_courses = WhyShouldStudyProfession.objects.all()[:2]
     why_profession_courses1 = WhyShouldStudyProfession.objects.all()[2:]
+
+    # Kursimiz haqida izohlar
+    comment_first = CommentAboutCourse.objects.all()[:2]
+    comment_second = CommentAboutCourse.objects.all()[2:]
 
     # print(teacher_about)
     # print(text_split)
@@ -25,8 +30,7 @@ def home(request):
         model.phone_number = request.POST.get('lastname', '')
         model.tg_username = request.POST.get('username', '')
 
-        if form.is_valid():
-            model.save()
+        model.save()
 
     context = {
         'main': main,
@@ -37,6 +41,8 @@ def home(request):
         'why_should_study_courses': why_should_study_courses,
         'why_profession_courses': why_profession_courses,
         'why_profession_courses1': why_profession_courses1,
+        'comment_first': comment_first,
+        'comment_second': comment_second,
     }
 
     return render(request, 'index.html', context)
