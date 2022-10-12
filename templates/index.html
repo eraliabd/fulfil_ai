@@ -36,7 +36,7 @@
                 <img src="{% static 'assets/images/phone_icon.png' %}" alt="phone"/>
                 <div class="number">
                     <p>Telefon raqamimiz</p>
-                    <h1>+998976282882</h1>
+                    <h1>{{ main.phone_number }}</h1>
                 </div>
             </div>
             <div class="navbtn">
@@ -58,30 +58,40 @@
             <div class="hero-contents">
                 <div class="hero-first-content">
                     <h1 class="course-info">
-                        240 soatlik <br/>
-                        professional <span class="green">Python</span> va <br/>
-                        Sun’iy <span class="green">intellekt kursi</span>
+{#                        240 soatlik <br/>#}
+{#                        professional <span class="green">Python</span> va <br/>#}
+{#                        Sun’iy <span class="green">intellekt kursi</span>#}
+                        <p>
+                            {{ main.course_title }}
+                        </p>
                     </h1>
-                    <div class="question-section">
-                        <div class="span"><span class="undov">!</span></div>
-                        <p class="question">Noldan dasturlashni o’rganmoqchimisiz?</p>
-                    </div>
-
-                    <div class="question-section">
-                        <div class="span"><span class="undov">!</span></div>
-                        <p class="question">
-                            O’zbekistonda bo’sh bo’lgan sohani o’rganib IT da o’zingizni
-                            topmoqchimisiz?
-                        </p>
-                    </div>
-
-                    <div class="question-section">
-                        <div class="span"><span class="undov">!</span></div>
-                        <p class="question">
-                            Koreya “AHA INC” kompaniyasida ishlovchi dasturchi va
-                            pedogogdan dasturlashni o’rganmoqchimisiz?
-                        </p>
-                    </div>
+                    {% with text_split as body %}
+                        {% for b in body %}
+                            <div class="question-section">
+                                <div class="span"><span class="undov">!</span></div>
+                                <p class="question">{{ b }}?</p>
+                            </div>
+                        {% endfor %}
+                    {% endwith %}
+{#                    <div class="question-section">#}
+{#                        <div class="span"><span class="undov">!</span></div>#}
+{#                        <p class="question">Noldan dasturlashni o’rganmoqchimisiz?</p>#}
+{#                    </div>#}
+{#                    <div class="question-section">#}
+{#                        <div class="span"><span class="undov">!</span></div>#}
+{#                        <p class="question">#}
+{#                            O’zbekistonda bo’sh bo’lgan sohani o’rganib IT da o’zingizni#}
+{#                            topmoqchimisiz?#}
+{#                        </p>#}
+{#                    </div>#}
+{##}
+{#                    <div class="question-section">#}
+{#                        <div class="span"><span class="undov">!</span></div>#}
+{#                        <p class="question">#}
+{#                            Koreya “AHA INC” kompaniyasida ishlovchi dasturchi va#}
+{#                            pedogogdan dasturlashni o’rganmoqchimisiz?#}
+{#                        </p>#}
+{#                    </div>#}
 
                     <h2>Unda bu kursimiz siz uchun.</h2>
                     <p class="cashbac">
@@ -105,11 +115,11 @@
                 <div class="container">
                     <div class="lessons">
                         <div class="lesson">
-                            <h3>20</h3>
+                            <h3>{{ main.lessons }}</h3>
                             <p>Darslar</p>
                         </div>
                         <div class="lesson">
-                            <h3>30</h3>
+                            <h3>{{ main.task }}</h3>
                             <p>dan ortiq vazifalar</p>
                         </div>
                     </div>
@@ -126,38 +136,46 @@
         <div class="container">
             <div class="teacher-box">
                 <div class="teacher-img">
-                    <img src="{% static 'assets/images/img-teacher.png' %}" alt=""/>
+                    <img src="media/{{ main.teacher_image }}" alt=""/>
                 </div>
                 <div class="teacher-info">
                     <div class="text-info__top">
                         <p>Ustoz</p>
                     </div>
                     <div class="text-info__middle">
-                        <p>Biyimbetov <span>Azizbek</span></p>
+                        <p><span>{{ main.full_name }}</span></p>
                     </div>
                     <div class="text-info__bottom">
+                    {% with teacher_about as abouts %}
+                        {% for about in abouts %}
                         <div class="text-info__flex">
                             <img src="{% static 'assets/images/icon-teach.png' %}" alt=""/>
-                            <p>Intellektual dasturiy tizimlar markazi</p>
+                            <p>{{ about }}</p>
                         </div>
-                        <div class="text-info__flex">
-                            <img src="{% static 'assets/images/icon-teach.png' %}" alt=""/>
-                            <p>ABL soft MCHJ</p>
-                        </div>
-                        <div class="text-info__flex">
-                            <img src="{% static 'assets/images/icon-teach.png' %}" alt=""/>
-                            <p>Innovatsion rivojlanish vazirligi</p>
-                        </div>
-                        <div class="text-info__flex">
-                            <img src="{% static 'assets/images/icon-teach.png' %}" alt=""/>
-                            <p>
-                                Sun’iy intellektni rivojlantirish ilmiy-tadqiqot instituti
-                            </p>
-                        </div>
-                        <div class="text-info__flex">
-                            <img src="{% static 'assets/images/icon-teach.png' %}" alt=""/>
-                            <p>AHA INC Company</p>
-                        </div>
+                        {% endfor %}
+                    {% endwith %}
+{#                        <div class="text-info__flex">#}
+{#                            <img src="{% static 'assets/images/icon-teach.png' %}" alt=""/>#}
+{#                            <p>Intellektual dasturiy tizimlar markazi</p>#}
+{#                        </div>#}
+{#                        <div class="text-info__flex">#}
+{#                            <img src="{% static 'assets/images/icon-teach.png' %}" alt=""/>#}
+{#                            <p>ABL soft MCHJ</p>#}
+{#                        </div>#}
+{#                        <div class="text-info__flex">#}
+{#                            <img src="{% static 'assets/images/icon-teach.png' %}" alt=""/>#}
+{#                            <p>Innovatsion rivojlanish vazirligi</p>#}
+{#                        </div>#}
+{#                        <div class="text-info__flex">#}
+{#                            <img src="{% static 'assets/images/icon-teach.png' %}" alt=""/>#}
+{#                            <p>#}
+{#                                Sun’iy intellektni rivojlantirish ilmiy-tadqiqot instituti#}
+{#                            </p>#}
+{#                        </div>#}
+{#                        <div class="text-info__flex">#}
+{#                            <img src="{% static 'assets/images/icon-teach.png' %}" alt=""/>#}
+{#                            <p>AHA INC Company</p>#}
+{#                        </div>#}
                     </div>
                     <button class="btn" onclick="modalOpen(event)">
                         Kursga yozilish
@@ -178,44 +196,57 @@
                     <h1>KURS <span class="green">KIMLAR UCHUN?</span></h1>
                 </div>
                 <div class="mini_sections">
-                    <div class="for_whom_box">
+                    {% for course in who_for_courses %}
+                        <div class="for_whom_box">
                         <div class="for-whom-box-img">
                             <div class="box_ellipse">
-                                <img src="{% static 'assets/images/for_whom_icon1.png' %}" alt="icon1"/>
+                                <img src="media/{{ course.image }}" alt="icon1"/>
                             </div>
                         </div>
-                        <h2 class="for_whom_text">Xoxish va istak</h2>
+                        <h2 class="for_whom_text">{{ course.title }}</h2>
                         <p class="info_text">
-                            O’rganishga ishtiyoq va o’rganish uchun vaqti borlar uchun,
-                            eng kamida bir kunda 4-5 soat o'rganishga sarflay olishingiz
-                            kerak
+                            {{ course.description }}
                         </p>
                     </div>
-                    <div class="for_whom_box">
-                        <div class="for-whom-box-img">
-                            <div class="box_ellipse">
-                                <img src="{% static 'assets/images/for_whom_icon2.png' %}" alt="icon2"/>
-                            </div>
-                        </div>
-
-                        <h2 class="for_whom_text">Bir oz mantiq</h2>
-                        <p class="info_text">
-                            Mantiq va logika qismi yaxshi rivojlanganlar uchun
-                        </p>
-                    </div>
-                    <div class="for_whom_box">
-                        <div class="for-whom-box-img">
-                            <div class="box_ellipse">
-                                <img src="{% static 'assets/images/for_whom_icon3.png' %}" alt="icon3"/>
-                            </div>
-                        </div>
-                        <h2 class="for_whom_text">Va albatta</h2>
-                        <p>
-                            Kompyuter va interneti borlar uchun
-                            <br/>
-                            p.s u siz qayerga :)
-                        </p>
-                    </div>
+                    {% endfor %}
+{#                    <div class="for_whom_box">#}
+{#                        <div class="for-whom-box-img">#}
+{#                            <div class="box_ellipse">#}
+{#                                <img src="{% static 'assets/images/for_whom_icon1.png' %}" alt="icon1"/>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                        <h2 class="for_whom_text">Xoxish va istak</h2>#}
+{#                        <p class="info_text">#}
+{#                            O’rganishga ishtiyoq va o’rganish uchun vaqti borlar uchun,#}
+{#                            eng kamida bir kunda 4-5 soat o'rganishga sarflay olishingiz#}
+{#                            kerak#}
+{#                        </p>#}
+{#                    </div>#}
+{#                    <div class="for_whom_box">#}
+{#                        <div class="for-whom-box-img">#}
+{#                            <div class="box_ellipse">#}
+{#                                <img src="{% static 'assets/images/for_whom_icon2.png' %}" alt="icon2"/>#}
+{#                            </div>#}
+{#                        </div>#}
+{##}
+{#                        <h2 class="for_whom_text">Bir oz mantiq</h2>#}
+{#                        <p class="info_text">#}
+{#                            Mantiq va logika qismi yaxshi rivojlanganlar uchun#}
+{#                        </p>#}
+{#                    </div>#}
+{#                    <div class="for_whom_box">#}
+{#                        <div class="for-whom-box-img">#}
+{#                            <div class="box_ellipse">#}
+{#                                <img src="{% static 'assets/images/for_whom_icon3.png' %}" alt="icon3"/>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                        <h2 class="for_whom_text">Va albatta</h2>#}
+{#                        <p>#}
+{#                            Kompyuter va interneti borlar uchun#}
+{#                            <br/>#}
+{#                            p.s u siz qayerga :)#}
+{#                        </p>#}
+{#                    </div>#}
                 </div>
                 <div class="for_whom_btn">
                     <div class="butn">
@@ -319,7 +350,7 @@
 
                     <div class="ellipse-about">
                         <div class="ellipse-aboutbg"></div>
-                        <img src="{% static 'assets/images/about_course.png' %}" alt="Image"/>
+                        <img src="media/{{ main.course_learn_image }}" alt="Image"/>
                     </div>
 
 
@@ -342,63 +373,73 @@
                     </h1>
                     <div class="ellipse-checklist">
                         <div class="imgcheck">
-                            <img src="{% static 'assets/images/checklist.png' %}" alt="checklist"/>
+                            <img src="media/{{ main.course_project_image }}" alt="checklist"/>
                         </div>
                     </div>
                 </div>
                 <div class="project-info-second">
+                {% with why_projects as projects %}
+                    {% for project in projects %}
                     <div class="list-titles">
                         <img src="{% static 'assets/images/icon-teach.png' %}" alt="check"/>
                         <p>
-                            Inson ko'zoynak taqgan yoki taqmaganligini <br/>
-                            aniqlovchi dastur
+                            {{ project }}
                         </p>
                     </div>
-                    <div class="list-titles">
-                        <img src="{% static 'assets/images/icon-teach.png' %}" alt="check"/>
-                        <p>Yuz tanish, obyekt detection</p>
-                    </div>
-                    <div class="list-titles">
-                        <img src="{% static 'assets/images/icon-teach.png' %}" alt="check"/>
-                        <p>DTM savollari varaqasini tekshiruvchi dastur</p>
-                    </div>
-                    <div class="list-titles">
-                        <img src="{% static 'assets/images/icon-teach.png' %}" alt="check"/>
-                        <p>Avtomobil nomerini aniqlaydigan dastur</p>
-                    </div>
-                    <div class="list-titles">
-                        <img src="{% static 'assets/images/icon-teach.png' %}" alt="check"/>
-                        <p>Kun yoki tun ekanligini aniqlovchi dastur</p>
-                    </div>
-                    <div class="list-titles">
-                        <img src="{% static 'assets/images/icon-teach.png' %}" alt="check"/>
-                        <p>Yosh tanish dasturi</p>
-                    </div>
-                    <div class="list-titles">
-                        <img src="{% static 'assets/images/icon-teach.png' %}" alt="check"/>
-                        <p>Avtomobil tezligini aniqlovchi dastur</p>
-                    </div>
-                    <div class="list-titles">
-                        <img src="{% static 'assets/images/icon-teach.png' %}" alt="check"/>
-                        <p>Pasportdagi yozuvlarni aniqlovchi va tanish dasturi</p>
-                    </div>
-                    <div class="list-titles">
-                        <img src="{% static 'assets/images/icon-teach.png' %}" alt="check"/>
-                        <p>Rentgentga qarab COVID ni aniqlovchi dastur</p>
-                    </div>
-                    <div class="list-titles">
-                        <img src="{% static 'assets/images/icon-teach.png' %}" alt="check"/>
-                        <p>
-                            Avtomobillar sonini sanovchi dastur kabi turli xil <br/>
-                            dasturlar tuzib ko'rsatilgan
-                        </p>
-                    </div>
-                    <div class="list-finish">
-                        <p>Imkoyniyatni boy bermang, xoziroq kursga yoziling!</p>
-                        <button class="btn" onclick="modalOpen(event)">
-                            Kursga yozilish
-                        </button>
-                    </div>
+                    {% endfor %}
+                {% endwith %}
+{#                    <div class="list-titles">#}
+{#                        <img src="{% static 'assets/images/icon-teach.png' %}" alt="check"/>#}
+{#                        <p>#}
+{#                            Inson ko'zoynak taqgan yoki taqmaganligini <br/>#}
+{#                            aniqlovchi dastur#}
+{#                        </p>#}
+{#                    </div>#}
+{#                    <div class="list-titles">#}
+{#                        <img src="{% static 'assets/images/icon-teach.png' %}" alt="check"/>#}
+{#                        <p>Yuz tanish, obyekt detection</p>#}
+{#                    </div>#}
+{#                    <div class="list-titles">#}
+{#                        <img src="{% static 'assets/images/icon-teach.png' %}" alt="check"/>#}
+{#                        <p>DTM savollari varaqasini tekshiruvchi dastur</p>#}
+{#                    </div>#}
+{#                    <div class="list-titles">#}
+{#                        <img src="{% static 'assets/images/icon-teach.png' %}" alt="check"/>#}
+{#                        <p>Avtomobil nomerini aniqlaydigan dastur</p>#}
+{#                    </div>#}
+{#                    <div class="list-titles">#}
+{#                        <img src="{% static 'assets/images/icon-teach.png' %}" alt="check"/>#}
+{#                        <p>Kun yoki tun ekanligini aniqlovchi dastur</p>#}
+{#                    </div>#}
+{#                    <div class="list-titles">#}
+{#                        <img src="{% static 'assets/images/icon-teach.png' %}" alt="check"/>#}
+{#                        <p>Yosh tanish dasturi</p>#}
+{#                    </div>#}
+{#                    <div class="list-titles">#}
+{#                        <img src="{% static 'assets/images/icon-teach.png' %}" alt="check"/>#}
+{#                        <p>Avtomobil tezligini aniqlovchi dastur</p>#}
+{#                    </div>#}
+{#                    <div class="list-titles">#}
+{#                        <img src="{% static 'assets/images/icon-teach.png' %}" alt="check"/>#}
+{#                        <p>Pasportdagi yozuvlarni aniqlovchi va tanish dasturi</p>#}
+{#                    </div>#}
+{#                    <div class="list-titles">#}
+{#                        <img src="{% static 'assets/images/icon-teach.png' %}" alt="check"/>#}
+{#                        <p>Rentgentga qarab COVID ni aniqlovchi dastur</p>#}
+{#                    </div>#}
+{#                    <div class="list-titles">#}
+{#                        <img src="{% static 'assets/images/icon-teach.png' %}" alt="check"/>#}
+{#                        <p>#}
+{#                            Avtomobillar sonini sanovchi dastur kabi turli xil <br/>#}
+{#                            dasturlar tuzib ko'rsatilgan#}
+{#                        </p>#}
+{#                    </div>#}
+{#                    <div class="list-finish">#}
+{#                        <p>Imkoyniyatni boy bermang, xoziroq kursga yoziling!</p>#}
+{#                        <button class="btn" onclick="modalOpen(event)">#}
+{#                            Kursga yozilish#}
+{#                        </button>#}
+{#                    </div>#}
                 </div>
             </div>
         </div>
@@ -594,10 +635,7 @@
                         <p>
                             Bu yo'nalishda ta'lim berib kelyapmiz <br/>
                             va bizni bitirgan o'quvchilar o'z
-                            <span class="w900">
-                    ish<br/>
-                    joylariga </span
-                            >ega bo'lishmoqda
+                            <span class="w900">ish<br/>joylariga </span >ega bo'lishmoqda
                         </p>
                     </div>
 
@@ -622,10 +660,8 @@
                         <p>
                             Nafaqat Suniy intellekt, balkim boshga<br/>
                             kurslarimizning ham narxlari aksariyat<br/><span
-                                class="w900"
-                        >
-                    o’quv markazlariga nisbatan arzon.</span
-                        >
+                                class="w900">
+                    o’quv markazlariga nisbatan arzon.</span>
                         </p>
                     </div>
 
@@ -648,9 +684,7 @@
                         </div>
                         <h2>Ilk bor</h2>
                         <p>
-                            O'zbekistonda<span class="w900">
-                    birinchilardan bo'lib<br
-                        /></span>
+                            O'zbekistonda<span class="w900">birinchilardan bo'lib<br/></span>
                             Sun'iy intellekt yo'nalishida<br/>
                             ta'lim berishni boshlaganmiz
                         </p>
@@ -662,14 +696,8 @@
                         </div>
                         <h2>Yana bir imkoniyat</h2>
                         <p>
-                            Kursni muvaffaqiyatli yakunlasangiz<span class="w900">
-                    hamkor<br/>
-                    firmalarimizga</span
-                        >
-                            sizni tavsiya etishimiz mumkin,<span class="w900"
-                        >AI<br/>
-                    ONE GROUP</span
-                        >
+                            Kursni muvaffaqiyatli yakunlasangiz<span class="w900">hamkor<br/>firmalarimizga</span>
+                            sizni tavsiya etishimiz mumkin,<span class="w900">AI<br/>ONE GROUP</span>
                             a'zosi bo'lish imkoniyati beriladi.
                         </p>
                     </div>
