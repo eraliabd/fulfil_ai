@@ -45,6 +45,9 @@ class Main(models.Model):
     # Nega sun'iy intellektni o'rganishim kerak?
     why_should_study_profession_title = models.CharField(max_length=255, null=True)
 
+    def __str__(self):
+        return "Bu modelda bir marta kiritiladigan malumotlar keltirilib o'tilgan"
+
 
 # KURS KIMLAR UCHUN? Model
 class WhoForCourse(models.Model):
@@ -54,6 +57,16 @@ class WhoForCourse(models.Model):
 
     def __str__(self):
         return self.title
+
+
+# BU KURSDA NIMALARNI O'RGANAMIZ?
+class WhatThisLearnCourse(models.Model):
+    ordinal_number = models.IntegerField()
+    title = models.CharField(max_length=255)
+    description = models.TextField()
+
+    def __str__(self):
+        return f"{self.ordinal_number} {self.title}"
 
 
 # Nega sun'iy intellektni o'rganishim kerak?

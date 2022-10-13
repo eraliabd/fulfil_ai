@@ -58,9 +58,6 @@
             <div class="hero-contents">
                 <div class="hero-first-content">
                     <h1 class="course-info">
-{#                        240 soatlik <br/>#}
-{#                        professional <span class="green">Python</span> va <br/>#}
-{#                        Sun’iy <span class="green">intellekt kursi</span>#}
                         <p>
                             {{ main.course_title }}
                         </p>
@@ -73,32 +70,13 @@
                             </div>
                         {% endfor %}
                     {% endwith %}
-{#                    <div class="question-section">#}
-{#                        <div class="span"><span class="undov">!</span></div>#}
-{#                        <p class="question">Noldan dasturlashni o’rganmoqchimisiz?</p>#}
-{#                    </div>#}
-{#                    <div class="question-section">#}
-{#                        <div class="span"><span class="undov">!</span></div>#}
-{#                        <p class="question">#}
-{#                            O’zbekistonda bo’sh bo’lgan sohani o’rganib IT da o’zingizni#}
-{#                            topmoqchimisiz?#}
-{#                        </p>#}
-{#                    </div>#}
-{##}
-{#                    <div class="question-section">#}
-{#                        <div class="span"><span class="undov">!</span></div>#}
-{#                        <p class="question">#}
-{#                            Koreya “AHA INC” kompaniyasida ishlovchi dasturchi va#}
-{#                            pedogogdan dasturlashni o’rganmoqchimisiz?#}
-{#                        </p>#}
-{#                    </div>#}
 
                     <h2>Unda bu kursimiz siz uchun.</h2>
                     <p class="cashbac">
                         Kursga hoziroq ro’yxatdan o’ting va <br/>
                         <span class="green"> chegirmaga </span>ega bo’ling!
                     </p>
-                    <button class="btn" onclick="modalOpen(event)">
+                    <button class="btn" type="submit" onclick="modalOpen(event)">
                         Kursga yozilish
                     </button>
                 </div>
@@ -278,61 +256,28 @@
                 <div class="left-wrap">
                     <div class="about_course_left_wrap">
                         <div class="about_course_left">
+                            {% for what_course in what_this_learn_courses_left %}
                             <div class="about_course_item">
                                 <h3 class="about_course_item_title">
-                                    <span>1</span>
-                                    <span>Pyhton 5 oy</span>
+                                    <span>{{ what_course.ordinal_number }}</span>
+                                    <span>{{ what_course.title }}</span>
                                 </h3>
-                                <p>Python 5 oy davomida chuqur algoritmlashgacha</p>
+                                <p>{{ what_course.description }}</p>
                             </div>
-                            <div class="about_course_item">
-                                <h3 class="about_course_item_title">
-                                    <span>3</span>
-                                    <span>Algoritm dasturlari</span>
-                                </h3>
-                                <p>1500ga yaqin algoritm dasturlari</p>
-                            </div>
-                            <div class="about_course_item">
-                                <h3 class="about_course_item_title">
-                                    <span>5</span>
-                                    <span>Sun'iy intellekt Algoritmi</span>
-                                </h3>
-                                <p>100ga yaqin Sun'iy intellekt algoritmi</p>
-                            </div>
-                            <div class="about_course_item">
-                                <h3 class="about_course_item_title">
-                                    <span>7</span>
-                                    <span>Kaggle</span>
-                                </h3>
-                                <p>Kaggleda ishlash bilimlari</p>
-                            </div>
+                            {% endfor %}
                         </div>
                         <div class="about_course_right">
+                            {% for what_course in what_this_learn_courses_right %}
                             <div class="about_course_item">
                                 <h3 class="about_course_item_title">
-                                    <span>2</span>
-                                    Keyingi 5 oy
+                                    <span>{{ what_course.ordinal_number }}</span>
+                                    {{ what_course.title }}
                                 </h3>
                                 <p>
-                                    Keyingi 5 oyda Artificial Intelligence, Machine learning,
-                                    Deep learning, Data science, Computer Vision kabi
-                                    texnologiyalar chuqurlashtirilib o'rgatiladi
+                                    {{ what_course.description }}
                                 </p>
                             </div>
-                            <div class="about_course_item">
-                                <h3 class="about_course_item_title">
-                                    <span>4</span>
-                                    <span>Mukammal Algoritmlar</span>
-                                </h3>
-                                <p>Turli xil algoritmlarni mukammal yechimlari</p>
-                            </div>
-                            <div class="about_course_item">
-                                <h3 class="about_course_item_title">
-                                    <span>6</span>
-                                    <span>Turli xil kutubxonalar</span>
-                                </h3>
-                                <p>Numpy, OpenCV, Pandas, Matplotlib, Tensorflow, Keras</p>
-                            </div>
+                            {% endfor %}
                         </div>
 
                     </div>

@@ -1,15 +1,28 @@
 from django.shortcuts import render
-from .models import EnrollCourse, Main, WhoForCourse, WhyShouldStudyCourse, WhyShouldStudyProfession, CommentAboutCourse
-from .forms import EnrollCourseForm
+from django.db.models import F
+from .models import EnrollCourse, Main, WhoForCourse, WhyShouldStudyCourse, WhyShouldStudyProfession, \
+    CommentAboutCourse, WhatThisLearnCourse
 
 
 def home(request):
+    # Bunda umumiy malumot keladi
     main = Main.objects.get()
+    # KURS KIMLAR UCHUN?
     who_for_courses = WhoForCourse.objects.all()
+    # Nega aynan bu kursda o’qishim kerak?
     why_should_study_courses = WhyShouldStudyCourse.objects.all()
 
+    # BU KURSDA NIMALARNI O'RGANAMIZ?
+    what_this_learn_courses_right = WhatThisLearnCourse.objects.annotate(odd=F('ordinal_number') % 2).filter(odd=False)
+    what_this_learn_courses_left = WhatThisLearnCourse.objects.annotate(odd=F('ordinal_number') % 2).filter(odd=True)
+    # print(what_this_learn_courses_right)
+    # print(what_this_learn_courses_left)
+
+    # 240 soatlik professional Python va Sun’iy intellekt kursi
     text_split = main.course_body.split("?")
+    # Ustoz haqida
     teacher_about = main.teacher_about.split(".")
+    # Kursda qanday loyihalarni bajaramiz?
     why_projects = main.course_project_content.split(".")
 
     # Nega sun'iy intellektni o'rganishim kerak?
@@ -41,6 +54,8 @@ def home(request):
         'why_should_study_courses': why_should_study_courses,
         'why_profession_courses': why_profession_courses,
         'why_profession_courses1': why_profession_courses1,
+        'what_this_learn_courses_left': what_this_learn_courses_left,
+        'what_this_learn_courses_right': what_this_learn_courses_right,
         'comment_first': comment_first,
         'comment_second': comment_second,
     }
