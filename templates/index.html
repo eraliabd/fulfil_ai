@@ -39,7 +39,7 @@
                 </div>
             </div>
             <div class="navbtn">
-                <button class="btnbg" onclick="modalOpen(event)">
+                <button class="btnbg" type="submit" onclick="modalOpen(event)">
                     Qayta aloqa
                 </button>
             </div>
@@ -130,7 +130,7 @@
                             {% endfor %}
                         {% endwith %}
                     </div>
-                    <button class="btn" onclick="modalOpen(event)">
+                    <button class="btn" type="submit" onclick="modalOpen(event)">
                         Kursga yozilish
                     </button>
                 </div>
@@ -165,7 +165,7 @@
                 </div>
                 <div class="for_whom_btn">
                     <div class="butn">
-                        <button class="btn" onclick="modalOpen(event)">
+                        <button class="btn" type="submit" onclick="modalOpen(event)">
                             Kursga yozilish
                         </button>
                     </div>
@@ -224,7 +224,7 @@
                             <h3 class="h3">Kurs chet elning "AHA INC" kompaniyasida faoliyat yuritadigan
                                 tajribali Sun'iy intellekt mutaxassis tomonidan tayyorlangan</h3>
                         </div>
-                        <button class="btn" onclick="modalOpen(event)">Kursga yozilish</button>
+                        <button class="btn" type="submit" onclick="modalOpen(event)">Kursga yozilish</button>
                     </div>
                 </div>
 
@@ -418,7 +418,7 @@
                 <p class="extra_chance_right_text2">
                     {{ main.course_chance_small_content }}
                 </p>
-                <button class="btn" onclick="modalOpen(event)">Kursga yozilish</button>
+                <button class="btn" type="submit" onclick="modalOpen(event)">Kursga yozilish</button>
             </div>
         </div>
     </div>
@@ -438,9 +438,7 @@
                 </p>
                 <div class="apply-section-varning-container">
                     <img src="{% static 'assets/images/varning.svg' %}" alt="img"/>
-                    <b class="apply-section-varning-text"
-                    >Diqqat! Joylar chegaralangan!</b
-                    >
+                    <b class="apply-section-varning-text">Diqqat! Joylar chegaralangan!</b>
                 </div>
                 <form method="post" class="apply-section-form" enctype="multipart/form-data">
                     {% csrf_token %}
