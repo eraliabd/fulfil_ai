@@ -124,36 +124,14 @@
                         <p><span>{{ main.full_name }}</span></p>
                     </div>
                     <div class="text-info__bottom">
-                    {% with teacher_about as abouts %}
-                        {% for about in abouts %}
-                        <div class="text-info__flex">
-                            <img src="{% static 'assets/images/icon-teach.png' %}" alt=""/>
-                            <p>{{ about }}</p>
-                        </div>
-                        {% endfor %}
-                    {% endwith %}
-{#                        <div class="text-info__flex">#}
-{#                            <img src="{% static 'assets/images/icon-teach.png' %}" alt=""/>#}
-{#                            <p>Intellektual dasturiy tizimlar markazi</p>#}
-{#                        </div>#}
-{#                        <div class="text-info__flex">#}
-{#                            <img src="{% static 'assets/images/icon-teach.png' %}" alt=""/>#}
-{#                            <p>ABL soft MCHJ</p>#}
-{#                        </div>#}
-{#                        <div class="text-info__flex">#}
-{#                            <img src="{% static 'assets/images/icon-teach.png' %}" alt=""/>#}
-{#                            <p>Innovatsion rivojlanish vazirligi</p>#}
-{#                        </div>#}
-{#                        <div class="text-info__flex">#}
-{#                            <img src="{% static 'assets/images/icon-teach.png' %}" alt=""/>#}
-{#                            <p>#}
-{#                                Sun’iy intellektni rivojlantirish ilmiy-tadqiqot instituti#}
-{#                            </p>#}
-{#                        </div>#}
-{#                        <div class="text-info__flex">#}
-{#                            <img src="{% static 'assets/images/icon-teach.png' %}" alt=""/>#}
-{#                            <p>AHA INC Company</p>#}
-{#                        </div>#}
+                        {% with teacher_about as abouts %}
+                            {% for about in abouts %}
+                                <div class="text-info__flex">
+                                    <img src="{% static 'assets/images/icon-teach.png' %}" alt=""/>
+                                    <p>{{ about }}</p>
+                                </div>
+                            {% endfor %}
+                        {% endwith %}
                     </div>
                     <button class="btn" onclick="modalOpen(event)">
                         Kursga yozilish
@@ -176,55 +154,55 @@
                 <div class="mini_sections">
                     {% for course in who_for_courses %}
                         <div class="for_whom_box">
-                        <div class="for-whom-box-img">
-                            <div class="box_ellipse">
-                                <img src="media/{{ course.image }}" alt="icon1"/>
+                            <div class="for-whom-box-img">
+                                <div class="box_ellipse">
+                                    <img src="media/{{ course.image }}" alt="icon1"/>
+                                </div>
                             </div>
+                            <h2 class="for_whom_text">{{ course.title }}</h2>
+                            <p class="info_text">
+                                {{ course.description }}
+                            </p>
                         </div>
-                        <h2 class="for_whom_text">{{ course.title }}</h2>
-                        <p class="info_text">
-                            {{ course.description }}
-                        </p>
-                    </div>
                     {% endfor %}
-{#                    <div class="for_whom_box">#}
-{#                        <div class="for-whom-box-img">#}
-{#                            <div class="box_ellipse">#}
-{#                                <img src="{% static 'assets/images/for_whom_icon1.png' %}" alt="icon1"/>#}
-{#                            </div>#}
-{#                        </div>#}
-{#                        <h2 class="for_whom_text">Xoxish va istak</h2>#}
-{#                        <p class="info_text">#}
-{#                            O’rganishga ishtiyoq va o’rganish uchun vaqti borlar uchun,#}
-{#                            eng kamida bir kunda 4-5 soat o'rganishga sarflay olishingiz#}
-{#                            kerak#}
-{#                        </p>#}
-{#                    </div>#}
-{#                    <div class="for_whom_box">#}
-{#                        <div class="for-whom-box-img">#}
-{#                            <div class="box_ellipse">#}
-{#                                <img src="{% static 'assets/images/for_whom_icon2.png' %}" alt="icon2"/>#}
-{#                            </div>#}
-{#                        </div>#}
-{##}
-{#                        <h2 class="for_whom_text">Bir oz mantiq</h2>#}
-{#                        <p class="info_text">#}
-{#                            Mantiq va logika qismi yaxshi rivojlanganlar uchun#}
-{#                        </p>#}
-{#                    </div>#}
-{#                    <div class="for_whom_box">#}
-{#                        <div class="for-whom-box-img">#}
-{#                            <div class="box_ellipse">#}
-{#                                <img src="{% static 'assets/images/for_whom_icon3.png' %}" alt="icon3"/>#}
-{#                            </div>#}
-{#                        </div>#}
-{#                        <h2 class="for_whom_text">Va albatta</h2>#}
-{#                        <p>#}
-{#                            Kompyuter va interneti borlar uchun#}
-{#                            <br/>#}
-{#                            p.s u siz qayerga :)#}
-{#                        </p>#}
-{#                    </div>#}
+                    {#                    <div class="for_whom_box">#}
+                    {#                        <div class="for-whom-box-img">#}
+                    {#                            <div class="box_ellipse">#}
+                    {#                                <img src="{% static 'assets/images/for_whom_icon1.png' %}" alt="icon1"/>#}
+                    {#                            </div>#}
+                    {#                        </div>#}
+                    {#                        <h2 class="for_whom_text">Xoxish va istak</h2>#}
+                    {#                        <p class="info_text">#}
+                    {#                            O’rganishga ishtiyoq va o’rganish uchun vaqti borlar uchun,#}
+                    {#                            eng kamida bir kunda 4-5 soat o'rganishga sarflay olishingiz#}
+                    {#                            kerak#}
+                    {#                        </p>#}
+                    {#                    </div>#}
+                    {#                    <div class="for_whom_box">#}
+                    {#                        <div class="for-whom-box-img">#}
+                    {#                            <div class="box_ellipse">#}
+                    {#                                <img src="{% static 'assets/images/for_whom_icon2.png' %}" alt="icon2"/>#}
+                    {#                            </div>#}
+                    {#                        </div>#}
+                    {##}
+                    {#                        <h2 class="for_whom_text">Bir oz mantiq</h2>#}
+                    {#                        <p class="info_text">#}
+                    {#                            Mantiq va logika qismi yaxshi rivojlanganlar uchun#}
+                    {#                        </p>#}
+                    {#                    </div>#}
+                    {#                    <div class="for_whom_box">#}
+                    {#                        <div class="for-whom-box-img">#}
+                    {#                            <div class="box_ellipse">#}
+                    {#                                <img src="{% static 'assets/images/for_whom_icon3.png' %}" alt="icon3"/>#}
+                    {#                            </div>#}
+                    {#                        </div>#}
+                    {#                        <h2 class="for_whom_text">Va albatta</h2>#}
+                    {#                        <p>#}
+                    {#                            Kompyuter va interneti borlar uchun#}
+                    {#                            <br/>#}
+                    {#                            p.s u siz qayerga :)#}
+                    {#                        </p>#}
+                    {#                    </div>#}
                 </div>
                 <div class="for_whom_btn">
                     <div class="butn">
@@ -257,26 +235,26 @@
                     <div class="about_course_left_wrap">
                         <div class="about_course_left">
                             {% for what_course in what_this_learn_courses_left %}
-                            <div class="about_course_item">
-                                <h3 class="about_course_item_title">
-                                    <span>{{ what_course.ordinal_number }}</span>
-                                    <span>{{ what_course.title }}</span>
-                                </h3>
-                                <p>{{ what_course.description }}</p>
-                            </div>
+                                <div class="about_course_item">
+                                    <h3 class="about_course_item_title">
+                                        <span>{{ what_course.ordinal_number }}</span>
+                                        <span>{{ what_course.title }}</span>
+                                    </h3>
+                                    <p>{{ what_course.description }}</p>
+                                </div>
                             {% endfor %}
                         </div>
                         <div class="about_course_right">
                             {% for what_course in what_this_learn_courses_right %}
-                            <div class="about_course_item">
-                                <h3 class="about_course_item_title">
-                                    <span>{{ what_course.ordinal_number }}</span>
-                                    {{ what_course.title }}
-                                </h3>
-                                <p>
-                                    {{ what_course.description }}
-                                </p>
-                            </div>
+                                <div class="about_course_item">
+                                    <h3 class="about_course_item_title">
+                                        <span>{{ what_course.ordinal_number }}</span>
+                                        {{ what_course.title }}
+                                    </h3>
+                                    <p>
+                                        {{ what_course.description }}
+                                    </p>
+                                </div>
                             {% endfor %}
                         </div>
 
@@ -323,16 +301,16 @@
                     </div>
                 </div>
                 <div class="project-info-second">
-                {% with why_projects as projects %}
-                    {% for project in projects %}
-                    <div class="list-titles">
-                        <img src="{% static 'assets/images/icon-teach.png' %}" alt="check"/>
-                        <p>
-                            {{ project }}
-                        </p>
-                    </div>
-                    {% endfor %}
-                {% endwith %}
+                    {% with why_projects as projects %}
+                        {% for project in projects %}
+                            <div class="list-titles">
+                                <img src="{% static 'assets/images/icon-teach.png' %}" alt="check"/>
+                                <p>
+                                    {{ project }}
+                                </p>
+                            </div>
+                        {% endfor %}
+                    {% endwith %}
                 </div>
             </div>
         </div>
@@ -348,39 +326,39 @@
                 <h1>Kursimiz haqida <span class="green"> izohlar</span></h1>
                 <div class="comments-first">
                     {% for comment in comment_first %}
-                    <div class="comment">
-                        <div class="about-comment-user">
-                            <div class="comimg">
-                                <img src="media/{{ comment.image }}" alt="comUser"/>
+                        <div class="comment">
+                            <div class="about-comment-user">
+                                <div class="comimg">
+                                    <img src="media/{{ comment.image }}" alt="comUser"/>
+                                </div>
+                                <div class="about-name">
+                                    <h2>{{ comment.definition }}</h2>
+                                    <p>{{ comment.full_name }}</p>
+                                </div>
                             </div>
-                            <div class="about-name">
-                                <h2>{{ comment.definition }}</h2>
-                                <p>{{ comment.full_name }}</p>
-                            </div>
+                            <p class="com">
+                                {{ comment.description }}
+                            </p>
                         </div>
-                        <p class="com">
-                            {{ comment.description }}
-                        </p>
-                    </div>
                     {% endfor %}
                 </div>
 
                 <div class="comments-second">
                     {% for comment in comment_second %}
-                    <div class="comment">
-                        <div class="about-comment-user">
-                            <div class="comimg">
-                                <img src="media/{{ comment.image }}" alt="comUser"/>
+                        <div class="comment">
+                            <div class="about-comment-user">
+                                <div class="comimg">
+                                    <img src="media/{{ comment.image }}" alt="comUser"/>
+                                </div>
+                                <div class="about-name">
+                                    <h2>{{ comment.definition }}</h2>
+                                    <p>{{ comment.full_name }}</p>
+                                </div>
                             </div>
-                            <div class="about-name">
-                                <h2>{{ comment.definition }}</h2>
-                                <p>{{ comment.full_name }}</p>
-                            </div>
+                            <p class="com">
+                                {{ comment.description }}
+                            </p>
                         </div>
-                        <p class="com">
-                            {{ comment.description }}
-                        </p>
-                    </div>
                     {% endfor %}
                 </div>
             </div>
@@ -396,6 +374,27 @@
             <div class="why-ai-first">
                 <div class="why-ai-reasons">
                     {% for profession in why_profession_courses %}
+                        <div class="why-ai-reason">
+                            <div class="why-ai-img">
+                                <img src="media/{{ profession.image }}" alt="why-ai"/>
+                            </div>
+                            <h2>{{ profession.title }}</h2>
+                            <p>
+                                {{ profession.description }}
+                            </p>
+                        </div>
+                    {% endfor %}
+                </div>
+                <div class="why-ai-title">
+                    <h1>
+                        {#                        Nega <span class="green">sun'iy intellektni</span> o'rganishim#}
+                        {#                        kerak?#}
+                        <span class="green">{{ main.why_should_study_profession_title }}</span>
+                    </h1>
+                </div>
+            </div>
+            <div class="why-ai-second">
+                {% for profession in why_profession_courses1 %}
                     <div class="why-ai-reason">
                         <div class="why-ai-img">
                             <img src="media/{{ profession.image }}" alt="why-ai"/>
@@ -405,27 +404,6 @@
                             {{ profession.description }}
                         </p>
                     </div>
-                    {% endfor %}
-                </div>
-                <div class="why-ai-title">
-                    <h1>
-{#                        Nega <span class="green">sun'iy intellektni</span> o'rganishim#}
-{#                        kerak?#}
-                        <span class="green">{{ main.why_should_study_profession_title }}</span>
-                    </h1>
-                </div>
-            </div>
-            <div class="why-ai-second">
-                {% for profession in why_profession_courses1 %}
-                <div class="why-ai-reason">
-                    <div class="why-ai-img">
-                        <img src="media/{{ profession.image }}" alt="why-ai"/>
-                    </div>
-                    <h2>{{ profession.title }}</h2>
-                    <p>
-                        {{ profession.description }}
-                    </p>
-                </div>
                 {% endfor %}
             </div>
         </div>
