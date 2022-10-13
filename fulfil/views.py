@@ -43,6 +43,7 @@ def home(request):
         model.phone_number = request.POST.get('lastname', '')
         model.tg_username = request.POST.get('username', '')
 
+        print(model)
         model.save()
 
     context = {

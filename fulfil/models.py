@@ -15,6 +15,7 @@ class EnrollCourse(models.Model):
 class Main(models.Model):
     # navbar qismidagi telefon raqam
     phone_number = models.CharField(max_length=20, null=True)
+    modal_title = models.CharField(max_length=255, null=True)
     # ASOSIY RASMLAR, KETMA-KET JOYLASHGAN
     # 240 soatlik professional Python va Sun’iy intellekt kursi
     course_image = models.ImageField(upload_to='course_image/', null=True)
