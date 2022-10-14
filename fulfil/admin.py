@@ -13,6 +13,13 @@ class EnrollCourseAdmin(admin.ModelAdmin):
 class MainAdmin(admin.ModelAdmin):
     list_display = ('id', 'course_title', 'full_name')
     list_display_links = ('id', 'course_title')
+    search_fields = ('course_title', 'full_name')
+
+
+class CommentAboutCourseAdmin(admin.ModelAdmin):
+    list_display = ('id', 'full_name', 'definition')
+    list_display_links = ('id', 'full_name')
+    search_fields = ('full_name', 'definition')
 
 
 admin.site.register(EnrollCourse, EnrollCourseAdmin)
@@ -20,5 +27,5 @@ admin.site.register(Main, MainAdmin)
 admin.site.register(WhoForCourse)
 admin.site.register(WhyShouldStudyCourse)
 admin.site.register(WhyShouldStudyProfession)
-admin.site.register(CommentAboutCourse)
+admin.site.register(CommentAboutCourse, CommentAboutCourseAdmin)
 admin.site.register(WhatThisLearnCourse)
