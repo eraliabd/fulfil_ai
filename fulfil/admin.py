@@ -24,8 +24,8 @@ class CommentAboutCourseAdmin(admin.ModelAdmin):
 
 admin.site.register(EnrollCourse, EnrollCourseAdmin)
 admin.site.register(Main, MainAdmin)
+admin.site.register(CommentAboutCourse, CommentAboutCourseAdmin)
 admin.site.register(WhoForCourse)
 admin.site.register(WhyShouldStudyCourse)
 admin.site.register(WhyShouldStudyProfession)
-admin.site.register(CommentAboutCourse, CommentAboutCourseAdmin)
 admin.site.register(WhatThisLearnCourse)
