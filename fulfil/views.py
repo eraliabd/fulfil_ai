@@ -1,5 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.db.models import F
+
+from .forms import EnrollCourseForm
 from .models import EnrollCourse, Main, WhoForCourse, WhyShouldStudyCourse, WhyShouldStudyProfession, \
     CommentAboutCourse, WhatThisLearnCourse
 
@@ -39,12 +41,16 @@ def home(request):
 
     if request.method == 'POST':
         model = EnrollCourse()
-        model.full_name = request.POST.get('firstname', '')
-        model.phone_number = request.POST.get('lastname', '')
-        model.tg_username = request.POST.get('username', '')
+        form = EnrollCourseForm(request.POST or None, instance=model)
+        if request.POST and form.is_valid():
+            form.save()
+            model.full_name = request.POST.get('firstname', '')
+            model.phone_number = request.POST.get('lastname', '')
+            model.tg_username = request.POST.get('username', '')
 
-        print(model)
-        model.save()
+            model.save()
+            print(model)
+            return redirect('home')
 
     context = {
         'main': main,
