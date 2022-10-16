@@ -41,16 +41,16 @@ def home(request):
 
     if request.method == 'POST':
         model = EnrollCourse()
-        form = EnrollCourseForm(request.POST or None, instance=model)
-        if request.POST and form.is_valid():
-            form.save()
-            model.full_name = request.POST.get('firstname', '')
-            model.phone_number = request.POST.get('lastname', '')
-            model.tg_username = request.POST.get('username', '')
+        model.full_name = request.POST.get('firstname', '')
+        model.phone_number = request.POST.get('lastname', '')
+        model.tg_username = request.POST.get('username', '')
 
-            model.save()
-            print(model)
-            return redirect('home')
+        model.save()
+
+        # actions = request.session.get('actions', [])
+        # actions += [f"{request.POST.get('firstname')}", f"{request.POST.get('lastname')}", f"{request.POST.get('username')}"]
+        # request.session['actions'] = actions
+        # print(actions)
 
     context = {
         'main': main,

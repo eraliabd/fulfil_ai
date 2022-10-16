@@ -5,7 +5,7 @@ from django.db import models
 class EnrollCourse(models.Model):
     full_name = models.CharField(max_length=100)
     phone_number = models.PositiveBigIntegerField()
-    tg_username = models.CharField(max_length=100)
+    tg_username = models.CharField(max_length=100, verbose_name='Telegram username')
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
