@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'humanize',
+    'import_export',
 
     # custom apps
     'fulfil',

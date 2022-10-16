@@ -1,13 +1,16 @@
 from django.contrib import admin
+from import_export.admin import ImportExportModelAdmin, ImportMixin
+from .resources import EnrollCourseResource
 from .models import EnrollCourse, Main, WhoForCourse, WhyShouldStudyCourse, WhyShouldStudyProfession, \
     CommentAboutCourse, WhatThisLearnCourse
 
 
-class EnrollCourseAdmin(admin.ModelAdmin):
+class EnrollCourseAdmin(ImportExportModelAdmin):
     list_display = ('id', 'full_name', 'phone_number', 'tg_username', 'created_at')
     list_display_links = ('id', 'full_name',)
     list_filter = ('created_at',)
     search_fields = ('full_name', 'phone_number', 'tg_username',)
+    resource_class = EnrollCourseResource
 
 
 class MainAdmin(admin.ModelAdmin):
