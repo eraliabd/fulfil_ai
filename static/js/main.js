@@ -52,6 +52,14 @@ document.getElementById("overlay").addEventListener("click", function () {
     document.getElementById("scrollBlock").classList.remove("scrollNone");
 });
 
+// document.getElementsByTagName("button").addEventListener("click", function (event) {
+//     event.preventDefault();
+//     const confirmID = document.getElementsByTagName("button");
+//     confirmID.setAttribute("id", "confirm")
+//     modal.classList.remove("is-visible");
+//     document.getElementById("all-confirm").classList.add("is-visible");
+// });
+
 // confirm function
 confirm.addEventListener("click", function (event) {
     event.preventDefault();
@@ -66,3 +74,19 @@ document
         document.getElementById("overlay").classList.remove("is-visible");
         document.getElementById("scrollBlock").classList.remove("scrollNone");
     });
+
+$.ajax({
+    type: 'GET',
+    url: 'fulfil:home',
+    success: function (response) {
+        console.log(response)
+        const data = JSON.parse(response.data)
+        console.log(data)
+        data.forEach(e => {
+            console.log(e.field_name)
+        })
+    },
+    error: function (error) {
+        console.log(error)
+    }
+})
